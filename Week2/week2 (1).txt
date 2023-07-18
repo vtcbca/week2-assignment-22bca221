@@ -1,12 +1,6 @@
-C:\sqlite3>cd sqlite
-The system cannot find the path specified.
 
-C:\sqlite3>sqlite3
-SQLite version 3.36.0 2021-06-18 18:36:39
-Enter ".help" for usage hints.
-Connected to a transient in-memory database.
-Use ".open FILENAME" to reopen on a persistent database.
-sqlite> create table stud(id int primary key,name text);
+
+ create table stud(id int primary key,name text);
 
  insert into stud values(1,'kishan');
  insert into stud values(2,'shalini');
@@ -60,17 +54,15 @@ sqlite> create table stud(id int primary key,name text);
 │ 9  │ suart    │ 8754635658 │
 │ 10 │ vapi     │ 8868465656 │
 └────┴──────────┴────────────┘
-sqlite>
 
 select*from stud s, stud_details sd
-...> where s.id=sd.id and city='surat';
+ where s.id=sd.id and city='surat';
 ┌────┬───────┬────┬───────┬────────────┐
 │ id │ name  │ id │ city  │ mobile_no  │
 ├────┼───────┼────┼───────┼────────────┤
 │ 3  │ bittu │ 3  │ surat │ 8575768787 │
 └────┴───────┴────┴───────┴────────────┘
 
------------
 
 select s.id,s.name,sd.city,sd.mobile_no from stud s, stud_details sd
 where s.id=sd.id and city='surat';
@@ -81,7 +73,7 @@ where s.id=sd.id and city='surat';
 │ 3  │ bittu │ surat │ 8575768787 │
 └────┴───────┴───────┴────────────┘
 
-****************
+
 
 select s.id,s.name,sd.city,sd.mobile_no from stud s, stud_details sd
 where s.id=sd.id and city like 'b%';
@@ -92,16 +84,10 @@ where s.id=sd.id and city like 'b%';
 │ 8  │ prince │ bardoli │ 9568657677 │
 └────┴────────┴─────────┴────────────┘
 
-*******************
-update stud_details set m_no=5356567657
-where city='surat';
-
-*************
 
  update stud_details set mobile_no=5356567657
  where city='surat';
-
-sqlite> select*from stud_details;
+ select*from stud_details;
 
 ┌────┬──────────┬────────────┐
 │ id │   city   │ mobile_no  │
